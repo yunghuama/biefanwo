@@ -6,32 +6,12 @@
 <link  type="text/css" href="css/core.css" rel="stylesheet">
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript">
-	function AutoScroll() {
-		var _scroll = $("#photos>ul");
-		//ul往左边移动300px
-		_scroll.animate({
-			marginLeft : "-211px"
-		}, 1000, function() {
-			//把第一个li丢最后面去
-			_scroll.css({
-				marginLeft : 0
-			}).find("li:first").appendTo(_scroll);
-		});
-	}
-	$(function() {
-		//两秒后调用
-		var _scrolling = setInterval("AutoScroll()", 5000);
-		$("#photos>ul").hover(function() {
-			//鼠标移动DIV上停止
-			clearInterval(_scrolling);
-		}, function() {
-			//离开继续调用
-			_scrolling = setInterval("AutoScroll()", 5000);
-		});
-	});
-	
+
 	$(document).ready(function(){
 		$("#navigation li").eq(0).removeClass().addClass("index_click");
+		$.get("index_module.html",function(data){
+			$("#content").html(data);
+		})
 		//鼠标滑过和点击效果
 		$("#navigation li").mouseover(function(){
 			navigationMouseoverReset();
@@ -44,9 +24,37 @@
 			navigationClickReset();
 			var _name = $(this).attr("name");
 			$(this).removeClass().addClass(_name+"_click");
+			//切换菜单内容
+			$.get(_name+"_module.html",function(data){
+				console.info("add");
+				$("#content").empty();
+				$("#content").html(data);
+			})
 		})
 		
+		var _scrolling = setInterval("AutoScroll()", 5000);
+		$("#photos>ul").hover(function() {
+			//鼠标移动DIV上停止
+			clearInterval(_scrolling);
+		}, function() {
+			//离开继续调用
+			_scrolling = setInterval("AutoScroll()", 5000);
+		});
+		
 	});
+	
+	function AutoScroll() {
+		var _scroll = $("#photos>ul");
+		//ul往左边移动300px
+		_scroll.animate({
+			marginLeft : "-211px"
+		}, 1000, function() {
+			//把第一个li丢最后面去
+			_scroll.css({
+				marginLeft : 0
+			}).find("li:first").appendTo(_scroll);
+		});
+	}
 	
 	function navigationMouseoverReset(){
 		$("#navigation li").each(function(){
@@ -77,21 +85,7 @@
 		</div>
 		</div>
 		<div id="content">
-			<div id="photos">
-				<ul>
-					<li><img src="image/p1.png" /></li>
-					<li><img src="image/p2.png" /></li>
-					<li><img src="image/p3.png" /></li>
-					<li><img src="image/p4.png" /></li>
-					<li><img src="image/p5.png" /></li>
-				</ul>
-			</div>
-			<div id="introdiv">
-				<img class="intro" alt="" src="image/intro.png"><br/>
-				
-				<img class="download" alt="" src="image/download.png"><br/>
-				<img class="googleplay" alt="" src="image/googleplay.png">
-			</div>
+			
 		</div>
 		<div id="splitline"><img alt="" src="image/splitline.png"> </div>
 		<div id="copyright"><span>Copyright © 2013 biefanwo.cn. All rights reserved. <span></div>

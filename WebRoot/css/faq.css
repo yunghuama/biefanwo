@@ -1,0 +1,154 @@
+html,body{width:100%;height:100%;white-space:nowrap;}
+img,body,html{border:0; padding:0;}
+html,body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,p,blockquote,th,td{margin:0;padding:0;}
+*{font-family:'微软雅黑','Courier New';font-size:12px;}
+img{vertical-align:middle;}
+
+body {
+	overflow-x : hidden;
+	overflow-y : auto;
+	height:100%;
+}
+
+#main {
+	width:1024px;
+	margin:0px auto;
+	height:100%;
+	position:relative;
+}
+
+#head {
+	height:215px;
+	width:1024px;
+	background-image:url(../image/head.png);
+	position:relative;
+}
+
+
+#content {
+	position:relative;
+	width:1024px;
+	margin:0px auto;
+	height:490px;
+}
+
+/*********导航栏展示*********/
+
+#navigation {
+	height:22px;
+	position:absolute;
+	bottom:0px;
+}
+#navigation ul {
+	margin-left :150px;
+}
+
+#navigation ul li {
+	margin-left:10px; 
+	margin-right:10px; 
+	padding:0; 
+	list-style-type:none; 
+	float :left;
+	text-align :center;
+	line-height:30px;
+	cursor:pointer;
+}
+
+#navigation ul li.index {
+	background-image:url(../image/index.png);
+	width:78px;
+	height:22px;
+}
+
+#navigation ul li.index_over {
+	background-image:url(../image/index_over.png);
+	width:78px;
+	height:22px;
+}
+
+#navigation ul li.index_click {
+	background-image:url(../image/index_click.png);
+	width:78px;
+	height:22px;
+}
+
+
+#navigation ul li.realtime {
+	background-image:url(../image/realtime.png);
+	width:78px;
+	height:22px;
+}
+
+#navigation ul li.realtime_over {
+	background-image:url(../image/realtime_over.png);
+	width:78px;
+	height:22px;
+}
+
+#navigation ul li.realtime_click {
+	background-image:url(../image/realtime_click.png);
+	width:78px;
+	height:22px;
+}
+
+#navigation ul li.upgrade {
+	background-image:url(../image/upgrade.png);
+	width:78px;
+	height:22px;
+}
+
+#navigation ul li.upgrade_over {
+	background-image:url(../image/upgrade_over.png);
+	width:78px;
+	height:22px;
+}
+
+#navigation ul li.upgrade_click {
+	background-image:url(../image/upgrade_click.png);
+	width:78px;
+	height:22px;
+}
+
+#navigation ul li.faq {
+	background-image:url(../image/faq.png);
+	width:78px;
+	height:22px;
+}
+
+#navigation ul li.faq_over {
+	background-image:url(../image/faq_over.png);
+	width:78px;
+	height:22px;
+}
+
+#navigation ul li.faq_click {
+	background-image:url(../image/faq_click.png);
+	width:78px;
+	height:22px;
+}
+/*************FAQ***************/
+#faqcontent span {
+	width:1024px;
+	white-space: normal;
+	color:#7d7d7d;
+}
+
+#faqcontent .faqline {
+	margin-top:20px;
+	
+}
+
+/********分割线及版权**********/
+#splitline {
+	text-align:center;	
+}
+
+#splitline img{
+	width:800px;
+}
+
+#copyright {
+	margin-top:5px;
+	text-align:center;
+	color:#7d7d7d
+}
