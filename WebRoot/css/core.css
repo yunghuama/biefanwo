@@ -1,15 +1,20 @@
-html,body{width:100%;height:100%;overflow:hidden;white-space:nowrap;}
-iframe{width:100%;height:100%;padding:0;margin:0;}
+html,body{width:100%;height:100%;white-space:nowrap;}
 img,body,html{border:0; padding:0;}
 html,body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,p,blockquote,th,td{margin:0;padding:0;}
 *{font-family:'微软雅黑','Courier New';font-size:12px;}
 img{vertical-align:middle;}
 
+body {
+	overflow-x : hidden;
+	overflow-y : auto;
+	height:100%;
+}
 
 #main {
 	width:1024px;
 	margin:0px auto;
 	height:100%;
+	position:relative;
 }
 
 #head {
@@ -18,6 +23,16 @@ img{vertical-align:middle;}
 	background-image:url(../image/head.png);
 	position:relative;
 }
+
+
+#content {
+	position:relative;
+	width:1024px;
+	margin:0px auto;
+	height:490px;
+}
+
+/*********导航栏展示*********/
 
 #navigation {
 	height:22px;
@@ -39,23 +54,126 @@ img{vertical-align:middle;}
 	cursor:pointer;
 }
 
-li.index {
-	background-image:url(../image/1.png);
+#navigation ul li.index {
+	background-image:url(../image/index.png);
 	width:78px;
 	height:22px;
 }
-li.realtime {
-	background-image:url(../image/2.png);
+
+#navigation ul li.index_over {
+	background-image:url(../image/index_over.png);
 	width:78px;
 	height:22px;
 }
-li.upgrade {
-	background-image:url(../image/3.png);
+
+#navigation ul li.index_click {
+	background-image:url(../image/index_click.png);
 	width:78px;
 	height:22px;
 }
-li.faq {
-	background-image:url(../image/4.png);
+
+
+#navigation ul li.realtime {
+	background-image:url(../image/realtime.png);
 	width:78px;
 	height:22px;
+}
+
+#navigation ul li.realtime_over {
+	background-image:url(../image/realtime_over.png);
+	width:78px;
+	height:22px;
+}
+
+#navigation ul li.realtime_click {
+	background-image:url(../image/realtime_click.png);
+	width:78px;
+	height:22px;
+}
+
+#navigation ul li.upgrade {
+	background-image:url(../image/upgrade.png);
+	width:78px;
+	height:22px;
+}
+
+#navigation ul li.upgrade_over {
+	background-image:url(../image/upgrade_over.png);
+	width:78px;
+	height:22px;
+}
+
+#navigation ul li.upgrade_click {
+	background-image:url(../image/upgrade_click.png);
+	width:78px;
+	height:22px;
+}
+
+#navigation ul li.faq {
+	background-image:url(../image/faq.png);
+	width:78px;
+	height:22px;
+}
+
+#navigation ul li.faq_over {
+	background-image:url(../image/faq_over.png);
+	width:78px;
+	height:22px;
+}
+
+#navigation ul li.faq_click {
+	background-image:url(../image/faq_click.png);
+	width:78px;
+	height:22px;
+}
+
+/********滚动显示照片************/
+#photos{
+	position:absolute;
+	top:20px;
+	left:106px;
+	overflow:hidden;
+	width:211px;
+	height:371px;
+}
+#photos ul{
+	list-style:none;
+	width:2999px;
+}
+#photos li{
+	float:left;
+	cursor:pointer;
+}
+
+/*********介绍*********/
+#introdiv {
+	position:absolute;
+	top:30px;
+	left:400px;
+}
+
+#introdiv .intro{
+	position:relative;
+}
+
+#introdiv .download,#introdiv .googleplay {
+	margin-left:400px;
+	margin-top:10px;
+	cursor:pointer;
+	position:relative;
+}
+
+/********分割线及版权**********/
+#splitline {
+	text-align:center;	
+}
+
+#splitline img{
+	width:800px;
+}
+
+#copyright {
+	margin-top:5px;
+	text-align:center;
+	color:#7d7d7d
 }
