@@ -29,6 +29,38 @@
 			_scrolling = setInterval("AutoScroll()", 5000);
 		});
 	});
+	
+	$(document).ready(function(){
+		$("#navigation li").eq(0).removeClass().addClass("index_click");
+		//鼠标滑过和点击效果
+		$("#navigation li").mouseover(function(){
+			navigationMouseoverReset();
+			var _name = $(this).attr("name");
+			if($(this).is("."+_name+"_click")) return;
+			$(this).removeClass().addClass(_name+"_over");
+		}).mouseout(function(){
+			navigationMouseoverReset();
+		}).click(function(){
+			navigationClickReset();
+			var _name = $(this).attr("name");
+			$(this).removeClass().addClass(_name+"_click");
+		})
+		
+	});
+	
+	function navigationMouseoverReset(){
+		$("#navigation li").each(function(){
+			var _name = $(this).attr("name");
+			if(!$(this).is("."+_name+"_click"))
+			$(this).removeClass().addClass(_name);
+		})
+	}
+	function navigationClickReset(){
+		$("#navigation li").each(function(){
+			var _name = $(this).attr("name");
+			$(this).removeClass().addClass(_name);
+		})
+	}
 </script>
 </head>
 <body>
@@ -37,10 +69,10 @@
 		
 		<div id="navigation">
 			<ul>
-				<li class="index"></li>
-				<li class="realtime"></li>
-				<li class="upgrade"></li>
-				<li class="faq"></li>
+				<li name="index" class="index"></li>
+				<li name="realtime" class="realtime"></li>
+				<li name="upgrade" class="upgrade"></li>
+				<li name="faq" class="faq"></li>
 			</ul>
 		</div>
 		</div>
