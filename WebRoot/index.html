@@ -6,67 +6,47 @@
 <link  type="text/css" href="css/core.css" rel="stylesheet">
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript">
-
-	$(document).ready(function(){
-		$("#navigation li").eq(0).removeClass().addClass("index_click");
-		$.get("index_module.html",function(data){
-			$("#content").html(data);
+	var flag = 0;
+	var realTimeCount = 0;
+	var $j = jQuery.noConflict();
+	$j(document).ready(function(){
+		$j("#navigation li").eq(0).removeClass().addClass("index_click");
+		$j.get("index_module.html",function(data){
+			$j("#content").html(data);
 		})
 		//鼠标滑过和点击效果
-		$("#navigation li").mouseover(function(){
+		$j("#navigation li").mouseover(function(){
 			navigationMouseoverReset();
-			var _name = $(this).attr("name");
-			if($(this).is("."+_name+"_click")) return;
-			$(this).removeClass().addClass(_name+"_over");
+			var _name = $j(this).attr("name");
+			if($j(this).is("."+_name+"_click")) return;
+			$j(this).removeClass().addClass(_name+"_over");
 		}).mouseout(function(){
 			navigationMouseoverReset();
 		}).click(function(){
 			navigationClickReset();
-			var _name = $(this).attr("name");
-			$(this).removeClass().addClass(_name+"_click");
+			var _name = $j(this).attr("name");
+			$j(this).removeClass().addClass(_name+"_click");
 			//切换菜单内容
-			$.get(_name+"_module.html",function(data){
-				console.info("add");
-				$("#content").empty();
-				$("#content").html(data);
+			$j.get(_name+"_module.html",function(data){
+				$j("#content").empty();
+				$j("#content").html(data);
 			})
 		})
-		
-		var _scrolling = setInterval("AutoScroll()", 5000);
-		$("#photos>ul").hover(function() {
-			//鼠标移动DIV上停止
-			clearInterval(_scrolling);
-		}, function() {
-			//离开继续调用
-			_scrolling = setInterval("AutoScroll()", 5000);
-		});
-		
 	});
 	
-	function AutoScroll() {
-		var _scroll = $("#photos>ul");
-		//ul往左边移动300px
-		_scroll.animate({
-			marginLeft : "-211px"
-		}, 1000, function() {
-			//把第一个li丢最后面去
-			_scroll.css({
-				marginLeft : 0
-			}).find("li:first").appendTo(_scroll);
-		});
-	}
+	
 	
 	function navigationMouseoverReset(){
-		$("#navigation li").each(function(){
-			var _name = $(this).attr("name");
-			if(!$(this).is("."+_name+"_click"))
-			$(this).removeClass().addClass(_name);
+		$j("#navigation li").each(function(){
+			var _name = $j(this).attr("name");
+			if(!$j(this).is("."+_name+"_click"))
+			$j(this).removeClass().addClass(_name);
 		})
 	}
 	function navigationClickReset(){
-		$("#navigation li").each(function(){
-			var _name = $(this).attr("name");
-			$(this).removeClass().addClass(_name);
+		$j("#navigation li").each(function(){
+			var _name = $j(this).attr("name");
+			$j(this).removeClass().addClass(_name);
 		})
 	}
 </script>

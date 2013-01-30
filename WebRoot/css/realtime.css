@@ -1,0 +1,78 @@
+#realtime {
+	position :relative;
+	width:1024px;
+	height:100%;
+	background-image : url(../image/reportbg.png);
+}
+#reportnumber {
+	position:absolute;
+	top:55px;
+	left:175px;
+}
+.countleft {
+	float:left;
+	height:86px;
+	width:4px;
+	background-image : url(../image/counterleft.png);
+}
+.countcenter {
+	float:left;
+	height:86px;
+	width:274px;
+	background-image : url(../image/counterbg.png);
+	background-repeat : repeat-x
+}
+.countright {
+	float:left;
+	height:86px;
+	width:4px;
+	background-image : url(../image/counterright.png);
+}
+#back {
+	position:absolute;
+	top:11px;
+	left:11px;
+}
+
+#front {
+	position:absolute;
+	top:11px;
+	left:11px;
+}
+
+#upper, #upperBack{
+	vertical-align:bottom;
+}
+
+#lower, #lowerBack{
+	vertical-align:top;
+}
+
+#upper img{
+	position:relative;
+	height:32px;
+	vertical-align:bottom;
+	visibility:visible;
+}
+
+#lower img{
+	position:relative;
+	height:32px;
+	vertical-align:top;
+	visibility:visible;
+}
+
+	
+#lowerBack img{
+	position:relative;
+	vertical-align:top;
+}
+
+#upperBack img{
+	position:relative;
+	vertical-align:bottom;
+}
+
+.num{
+	width:52px;
+}
