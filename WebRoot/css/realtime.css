@@ -1,7 +1,7 @@
 #realtime {
 	position :relative;
 	width:1024px;
-	height:100%;
+	height:490px;
 	background-image : url(../image/reportbg.png);
 }
 #reportnumber {
@@ -9,6 +9,13 @@
 	top:55px;
 	left:175px;
 }
+
+#blocknumber {
+	position:absolute;
+	top:55px;
+	left:710px;
+}
+
 .countleft {
 	float:left;
 	height:86px;
@@ -76,3 +83,18 @@
 .num{
 	width:52px;
 }
+
+#reportToMap {
+	position : absolute;
+	top:110px;
+	left:230px;
+	cursor:pointer;
+}
+
+#blockToMap {
+	position : absolute;
+	top:110px;
+	left:230px;
+	cursor:pointer;
+}
+

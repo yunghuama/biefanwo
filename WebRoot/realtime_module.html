@@ -27,11 +27,41 @@
 				<img  src="image/down/0.png" id="count4Down" class="num"><img  src="image/down/0.png" id="count3Down" class="num"><img  src="image/down/0.png" id="count2Down" class="num"><img  src="image/down/0.png" id="count1Down" class="num"><img  src="image/down/0.png" id="count0Down" class="num">
 			</div>
 		</div>
+		<img alt="" src="image/tomap.png" id="reportToMap">
 	</div>
 	<div id="blocknumber">
-		
+		<div class="countleft"></div>
+		<div class="countcenter"></div>
+		<div class="countright"></div>
+		<div id="back">
+			<div id="upperBack">
+				<img  src="image/up/0.png" id="block4UpBack" class="num"><img  src="image/up/0.png" id="block3UpBack" class="num"><img  src="image/up/0.png" id="block2UpBack" class="num"><img  src="image/up/0.png" id="block1UpBack" class="num"><img  src="image/up/0.png" id="block0UpBack" class="num">
+			</div>
+			<div id="lowerBack">
+				<img  src="image/down/0.png" id="block4DownBack" class="num"><img  src="image/down/0.png" id="block3DownBack" class="num"><img  src="image/down/0.png" id="block2DownBack" class="num"><img  src="image/down/0.png" id="block1DownBack" class="num"><img  src="image/down/0.png" id="block0DownBack" class="num">
+			</div>
+		</div>
+		<div id="front">
+			<div id="upper">
+				<img  src="image/up/0.png" id="block4Up" class="num"><img  src="image/up/0.png" id="block3Up" class="num"><img  src="image/up/0.png" id="block2Up" class="num"><img  src="image/up/0.png" id="block1Up" class="num"><img  src="image/up/0.png" id="block0Up" class="num">
+			</div>
+			<div id="lower">
+				<img  src="image/down/0.png" id="block4Down" class="num"><img  src="image/down/0.png" id="block3Down" class="num"><img  src="image/down/0.png" id="block2Down" class="num"><img  src="image/down/0.png" id="block1Down" class="num"><img  src="image/down/0.png" id="block0Down" class="num">
+			</div>
+		</div>
+		<img alt="" src="image/tomap.png" id="blockToMap">
 	</div>
 	</div>
 </body>
 <script type="text/javascript" src="js/animate.js"></script>
+<script type="text/javascript">
+ $j(document).ready(function(){
+	 $j("#reportToMap").bind("click",function(){
+		 window.open ('http://biefanwo.cn:8088/cloudata/data.html');
+	 });
+	 $j("#blockToMap").bind("click",function(){
+			alert("亲，该功能正在努力开发中.."); 
+	 });
+ });
+</script>
 </html>

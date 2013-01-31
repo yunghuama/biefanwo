@@ -1,14 +1,16 @@
-/*************FAQ***************/
 
-#faqcontent span {
+/*************FAQ***************/
+#upgradecontent {
+	margin-left:20px;
+}
+
+#upgradecontent span {
 	width:1024px;
 	white-space: normal;
 	color:#7d7d7d;
 }
 
-#faqcontent .faqline {
+#upgradecontent .upgradeline {
 	margin-top:20px;
-	margin-left:20px;
-	margin-right:20px;
+	
 }
-

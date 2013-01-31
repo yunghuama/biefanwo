@@ -8,6 +8,7 @@ body {
 	overflow-x : hidden;
 	overflow-y : auto;
 	height:100%;
+	background-color:#bfbfbf;
 }
 
 #main {
@@ -15,6 +16,7 @@ body {
 	margin:0px auto;
 	height:100%;
 	position:relative;
+	background-color:#ffffff;
 }
 
 #head {
@@ -24,12 +26,19 @@ body {
 	position:relative;
 }
 
+#head #follow{
+	position:absolute;
+	right:0px;
+	bottom:0px;
+}
+
 
 #content {
 	position:relative;
 	width:1024px;
 	margin:0px auto;
-	height:490px;
+	min-height:490px;
+	background-color:#ffffff;
 }
 
 /*********导航栏展示*********/
@@ -156,11 +165,23 @@ body {
 	position:relative;
 }
 
-#introdiv .download,#introdiv .googleplay {
-	margin-left:400px;
-	margin-top:10px;
-	cursor:pointer;
-	position:relative;
+#introdiv .qr {
+	left:300px;
+	top :320px;
+	position:absolute;
+}
+
+
+#introdiv .download{
+	position:absolute;
+	left:410px;
+	top :330px;
+}
+
+#introdiv .googleplay {
+	position:absolute;
+	left:410px;
+	top :375px;
 }
 
 /********分割线及版权**********/
@@ -173,7 +194,14 @@ body {
 }
 
 #copyright {
-	margin-top:5px;
+	padding-top:5px;
 	text-align:center;
-	color:#7d7d7d
+	color:#7d7d7d;
+	background-color:#ffffff;
+}
+#mail {
+	padding-top:5px;
+	text-align:center;
+	color:#7d7d7d;
+	background-color:#ffffff;
 }
