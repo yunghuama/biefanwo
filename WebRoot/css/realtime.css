@@ -17,12 +17,14 @@
 }
 
 .countleft {
+	position:relative;
 	float:left;
 	height:86px;
 	width:4px;
 	background-image : url(../image/counterleft.png);
 }
 .countcenter {
+	position:relative;
 	float:left;
 	height:86px;
 	width:378px;
@@ -30,6 +32,7 @@
 	background-repeat : repeat-x
 }
 .countright {
+	position:relative;
 	float:left;
 	height:86px;
 	width:4px;
