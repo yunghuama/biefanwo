@@ -4,52 +4,30 @@
 	var c2_current = 0;
 	var c3_current = 0;
 	var c4_current= 0;
+	var c5_current= 0;
 
 	var c0_currentblock = 0;
 	var c1_currentblock = 0;
 	var c2_currentblock = 0;
 	var c3_currentblock = 0;
 	var c4_currentblock= 0;
+	var c5_currentblock= 0;
 	var allCount=0,page=0,pageSize=1,currentAllCount;
 	var lastAnchor,nextAnchor;
 	function flip (upperId, lowerId, changeNumber, pathUpper, pathLower){
-		var upperBackId = upperId+"Back";
-		$(upperId).src = $(upperBackId).src;
-		$(upperId).setStyle("height", "32px");
-		$(upperId).setStyle("visibility", "visible");
-		$(upperBackId).src = pathUpper+parseInt(changeNumber)+".png";
+		$j("#"+upperId).attr("src",pathUpper+parseInt(changeNumber)+".png");
+		$j("#"+lowerId).attr("src",pathLower+parseInt(changeNumber)+".png");
 		
-		$(lowerId).src = pathLower+parseInt(changeNumber)+".png";
-		$(lowerId).setStyle("height", "0px");
-		$(lowerId).setStyle("visibility", "visible");
-		
-		var flipUpper = new Fx.Tween(upperId, {duration: 200, transition: Fx.Transitions.Sine.easeInOut});
-		flipUpper.addEvents({
-			'complete': function(){
-				var flipLower = new Fx.Tween(lowerId, {duration: 200, transition: Fx.Transitions.Sine.easeInOut});
-					flipLower.addEvents({
-						'complete': function(){	
-							lowerBackId = lowerId+"Back";
-							$(lowerBackId).src = $(lowerId).src;
-							$(lowerId).setStyle("visibility", "hidden");
-							$(upperId).setStyle("visibility", "hidden");
-						}				});					
-					flipLower.start('height', 32);
-					
-			}
-							});
-		flipUpper.start('height', 0);
-		
-		
-	}//flip
+	}
 	
 	function retroReport(counts){
 		
-		var c4 = Math.floor(counts/10000);
-		var c3 = Math.floor((counts-c4*10000)/1000);
-		var c2 = Math.floor((counts-c4*10000-c3*1000)/100);
-		var c1 =  Math.floor((counts-c4*10000-c3*1000-c2*100)/10);
-		var c0 = Math.floor(counts-c4*10000-c3*1000-c2*100-c1*10);
+		var c5 = Math.floor(counts/100000);
+		var c4 = Math.floor((counts-c5*100000)/10000);
+		var c3 = Math.floor((counts-c5*100000-c4*10000)/1000);
+		var c2 = Math.floor((counts-c5*100000-c4*10000-c3*1000)/100);
+		var c1 =  Math.floor((counts-c5*100000-c4*10000-c3*1000-c2*100)/10);
+		var c0 = Math.floor(counts-c5*100000-c4*10000-c3*1000-c2*100-c1*10);
 		
 		 
 		 if( c0 != c0_current){
@@ -76,15 +54,20 @@
 				flip('count4Up', 'count4Down', c4, 'image/up/', 'image/down/');
 				c4_current = c4;
 		 }
+		 if( c5 != c5_current){
+				flip('count5Up', 'count5Down', c5, 'image/up/', 'image/down/');
+				c5_current = c5;
+		 }
 	}
 	
 	function retroBlock(counts){
 		
-		var c4 = Math.floor(counts/10000);
-		var c3 = Math.floor((counts-c4*10000)/1000);
-		var c2 = Math.floor((counts-c4*10000-c3*1000)/100);
-		var c1 =  Math.floor((counts-c4*10000-c3*1000-c2*100)/10);
-		var c0 = Math.floor(counts-c4*10000-c3*1000-c2*100-c1*10);
+		var c5 = Math.floor(counts/100000);
+		var c4 = Math.floor((counts-c5*100000)/10000);
+		var c3 = Math.floor((counts-c5*100000-c4*10000)/1000);
+		var c2 = Math.floor((counts-c5*100000-c4*10000-c3*1000)/100);
+		var c1 =  Math.floor((counts-c5*100000-c4*10000-c3*1000-c2*100)/10);
+		var c0 = Math.floor(counts-c5*100000-c4*10000-c3*1000-c2*100-c1*10);
 		
 		 
 		 if( c0 != c0_currentblock){
@@ -111,6 +94,11 @@
 				flip('block4Up', 'block4Down', c4, 'image/up/', 'image/down/');
 				c4_currentblock = c4;
 		 }
+		 
+		 if( c5 != c5_currentblock){
+				flip('block5Up', 'block5Down', c5, 'image/up/', 'image/down/');
+				c5_currentblock = c5;
+		 }
 		
 	}
 	
@@ -118,7 +106,6 @@
 	initLoadData();
 	if(realTimeCount==0){
 	setInterval('initLoadData()', 1000*60);
-//	setInterval('retroBlock()', 1000);
 	}
 	realTimeCount++;
 	
@@ -130,47 +117,9 @@
 		loadData();
 	}
 
-	//设置数字
-	function setCount(count){
-		//万
-		var w = count/10000;
-		//千
-		var q = count%10000/1000;
-		//百
-		var b = count%1000/100;
-		//十
-		var s = count%100/10;
-		//个
-		var g = count%10;
-		//设置数量图片
-		$("img.number").eq(0).attr("src","img/"+parseInt(w)+".png");
-		$("img.number").eq(1).attr("src","img/"+parseInt(q)+".png");
-		$("img.number").eq(2).attr("src","img/"+parseInt(b)+".png");
-		$("img.number").eq(3).attr("src","img/"+parseInt(s)+".png");
-		$("img.number").eq(4).attr("src","img/"+parseInt(g)+".png");
-	}
+
 	
 	function loadData(){
-	  /**  $j.ajax({
-	    	   type: "POST",
-	    	   url: "http://biefanwo.cn:8088/cloudata/system/ajax/reportNumberAnalyse.v",
-	    	   data: {"lastAnchor":lastAnchor,"nextAnchor":nextAnchor,"page":page,"count":pageSize},
-	    	   dataType:"json",
-	    	   success: function(data){
-	    		var data = jQuery.parseJSON(data);
-	      	    var items = data.response.items;
-	      	    if(items==null||items.length==0){
-	      	    	return;
-	      	    }
-	      	    //迭代设置数据
-	      	   for(var i=0;i<items.length;i++){
-	      		  setDetail(items[i]);
-	      	  	 }
-	      		},
-	      		error : function(msg){
-	      			
-	      		}
-	    	});**/
 		$j.getJSON("http://biefanwo.cn:8088/cloudata/system/ajax/reportNumberAnalyse.v?jsoncallback=?", { "lastAnchor":lastAnchor,"nextAnchor":nextAnchor,"page":page,"count":pageSize }, 
 			function (data) {
 			var data = jQuery.parseJSON(data);
@@ -180,14 +129,31 @@
       	    }
       	    //迭代设置数据
       	   for(var i=0;i<items.length;i++){
-      		  setDetail(items[i]);
+      		  setRepDetail(items[i]);
       	  	 }
 			});
+		$j.getJSON("http://biefanwo.cn:8088/cloudata/system/ajax/reportIntercept.v?jsoncallback=?", { "lastAnchor":lastAnchor,"nextAnchor":nextAnchor,"page":page,"count":pageSize }, 
+				function (data) {
+				var data = jQuery.parseJSON(data);
+	      	    var items = data.response.items;
+	      	    if(items==null||items.length==0){
+	      	    	return;
+	      	    }
+	      	    //迭代设置数据
+	      	   for(var i=0;i<items.length;i++){
+	      		 setInterceptDetail(items[i]);
+	      	  	 }
+				});
 	}
 	
-	function setDetail(ele){
+	function setRepDetail(ele){
 		allCount = ele.allCount;
 		retroReport(allCount);
+	}
+	
+	function setInterceptDetail(ele){
+		allCount = ele.allCount;
+		retroBlock(allCount);
 	}
 	
 	function getCurrentTime(){
